@@ -121,6 +121,7 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
             tx.book_loans.ISBN.value == isbn &&
             tx.returns.isEmpty
         }
+
         maybeTx match
           case None =>
             println(s"No active loan found for ISBN '$isbn'.")
@@ -128,12 +129,16 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
             val returnedTx = tx.copy(returns = Some(LocalDateTime.now()))
             currentCatalog.transactions =
               returnedTx :: currentCatalog.transactions.filterNot(_ == tx)
+
+            CatalogIO.saveTransactions(currentCatalog, "transactions.json")
+
             println(s"Book '${tx.book_loans.title}' returned. Thank you!")
+
 
       case "4" =>
         println("Goodbye!")
         continue = false
-
+        
       case _ =>
         println("Invalid choice. Try again.")
 }
