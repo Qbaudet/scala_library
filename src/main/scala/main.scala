@@ -7,6 +7,8 @@ import utils.CatalogIO
 import java.nio.file.{Files, Paths}
 import scala.io.StdIn.readLine
 import scala.util.Try
+import scala.concurrent.Await
+import scala.concurrent.duration.Duration
 
 @main def runLibrarySystem(): Unit =
 
@@ -99,7 +101,8 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
     println("1. Add a new book")
     println("2. Remove a book")
     println("3. Search a book")
-    println("4. See a books statistics")
+    println("4. See available books")
+    println("4. See statistics")
     println("5. See ongoing transactions")
     println("0. Exit")
     print("Select an option: ")
@@ -165,6 +168,49 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
 
           case None =>
             println("Invalid ISBN format.")
+
+      case "2" =>
+        print("Enter the ISBN of the book to remove: ")
+        val isbnInput = readLine().trim
+
+        if isbnInput.nonEmpty then
+          val bookToDelete = ISBN(isbnInput)
+          if localCatalog.books.exists(_.ISBN == bookToDelete) then
+            user.removeBook(bookToDelete, localCatalog)
+
+            CatalogIO.saveBooks(localCatalog, bookPath)
+            println(s"Book with ISBN '${bookToDelete.value}' removed.")
+          else
+            println(s"Error: Book with ISBN '${bookToDelete.value}' not found.")
+        else
+          println("Invalid ISBN format.")
+
+
+      case "3" =>
+        print("Enter your search query (title, author, ISBN, genre, year, or availability): ")
+        val query = readLine().trim
+
+        println("Searching books...")
+
+        try
+          val results = Await.result(localCatalog.search(query), Duration.Inf)
+          if results.nonEmpty then
+            println("Here is the list of book which correspond to your searching criteria:")
+            results.foreach(println)
+          else
+            println("No books matched your query.")
+        catch
+          case e: Exception =>
+            println(s"An error occurred during search: ${e.getMessage}") 
+          
+      case "4" =>
+        print("List of available books:")
+        println(localCatalog.listAvailableBooks)
+        
+      case "5" =>
+        print("General statistics:")
+        println(localCatalog.statistics())
+
 
 
 

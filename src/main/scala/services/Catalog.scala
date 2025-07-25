@@ -110,7 +110,7 @@ case class Catalog(
           book.availability.toString == query
       }
       .map(book =>
-        s"Book found: ${book.title} by ${book.authors.mkString(", ")}"
+        s"- ${book.title}, by ${book.authors.mkString(", ")} in ${book.publicationyear}, its genre is ${book.genre}, and it is available: ${book.availability}"
       )
       .toList
     }
@@ -137,7 +137,7 @@ case class Catalog(
             Available books: ${books_available}
             Unavailable books: ${books_unavailable}
             Genres available: ${genres.mkString(", ")}
-            Average publication year: ${avgYear.formatted("%.2f")}
+            Average publication year: ${avgYear}
             Most common genre: $mostCommonGenre
           """
 
