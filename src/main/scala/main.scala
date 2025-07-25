@@ -261,6 +261,17 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
       case "5" =>
         print("General statistics:")
         println(localCatalog.statistics())
+        
+      case "6" =>
+        print("Liste des transactions en cours:")
+        val ongoingTransactions = localCatalog.transactions.filter(_.returns.isEmpty)
+        if (ongoingTransactions.isEmpty) then
+          println("\nAucune transaction en cours.")
+        else
+          println("\nTransactions actives:")
+          ongoingTransactions.foreach { tx =>
+            println(s"- Livre: '${tx.book_loans.title}' emprunté par ${tx.user.name} le ${tx.timestamp}")
+          }
 
       case "0" =>
         println("Goodbye!")
