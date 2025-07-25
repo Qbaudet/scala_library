@@ -75,8 +75,8 @@ class CatalogTest extends AnyFunSuite {
     val results = Await.result(resultsFuture, 10.seconds)
 
     assert(results.size == 2)
-    assert(results.contains("Book found: Scala Basics by Author A"))
-    assert(results.contains("Book found: Advanced Scala by Author B"))
+    assert(results.contains("- Scala Basics, by Author A in 2020, its genre is Programming, and it is available: true"))
+    assert(results.contains("- Advanced Scala, by Author B in 2018, its genre is Programming, and it is available: false"))
   }
 
   // Test des statistiques

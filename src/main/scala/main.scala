@@ -176,7 +176,7 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
         if isbnInput.nonEmpty then
           val bookToDelete = ISBN(isbnInput)
           if localCatalog.books.exists(_.ISBN == bookToDelete) then
-            user.removeBook(bookToDelete, localCatalog)
+            user.removeBook(bookToDelete.value, localCatalog)
 
             CatalogIO.saveBooks(localCatalog, bookPath)
             println(s"Book with ISBN '${bookToDelete.value}' removed.")

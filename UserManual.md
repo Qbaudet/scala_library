@@ -235,5 +235,5 @@ Success: Member M004 deleted.
 
 To exit the application:
 
-- Choose **Logout** from your current role's menu.
-- This will return you to the role selection screen or exit the program depending on the context.
+- Choose **Exit** from your current role's menu.
+- This will shut down the app
