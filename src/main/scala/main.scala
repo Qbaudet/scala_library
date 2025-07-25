@@ -87,7 +87,8 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
     println("1. Browse books")
     println("2. Borrow a book")
     println("3. Return a book")
-    println("4. Exit")
+    println("4. Find recommendations")
+    println("0. Exit")
 
     readLine("Choose an option: ").trim match
       case "1" =>
@@ -134,8 +135,19 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
 
             println(s"Book '${tx.book_loans.title}' returned. Thank you!")
 
-
       case "4" =>
+        Await.result(currentCatalog.recommendBooksFor(user), 5.seconds) match
+          case recommendations if recommendations.nonEmpty =>
+            println("\nHere are some recommendations based on your previous loans:")
+            recommendations.foreach { book =>
+              println(s"- ${book.title} by ${book.authors.mkString(", ")} (${book.publicationyear})")
+              println(s"  Genre: ${book.genre}")
+              println(s"  ISBN: ${book.ISBN.value}")
+            }
+          case _ =>
+            println("\nSorry, we don't have any recommendations at the moment.")
+            println("This could be due to a lack of loan history or unavailability of similar books.")
+      case "0" =>
         println("Goodbye!")
         continue = false
         
@@ -147,6 +159,7 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
 def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
   var continue = true
   var localCatalog = catalog
+  val available = Await.result(localCatalog.listAvailableBooks, 5.seconds)
   while continue do
     println("\n--- Librarian Menu ---")
     println("1. Add a new book")
@@ -255,22 +268,27 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
             println(s"An error occurred during search: ${e.getMessage}")
 
       case "4" =>
-        print("List of available books:")
-        println(localCatalog.listAvailableBooks)
+        if available.isEmpty then
+          println("No books available at the moment.")
+        else
+          println("\nAvailable books:")
+          available.foreach { book =>
+            println(s"- ISBN: ${book.ISBN.value} | ${book.title} by ${book.authors.mkString(", ")} (${book.publicationyear})")
+          }
 
       case "5" =>
-        print("General statistics:")
+        print("General statistics :")
         println(localCatalog.statistics())
-        
+
       case "6" =>
-        print("Liste des transactions en cours:")
+        print("List of pending transactions :")
         val ongoingTransactions = localCatalog.transactions.filter(_.returns.isEmpty)
         if (ongoingTransactions.isEmpty) then
-          println("\nAucune transaction en cours.")
+          println("\nNo transactions in progress.")
         else
-          println("\nTransactions actives:")
+          println("\nTransactions actives :")
           ongoingTransactions.foreach { tx =>
-            println(s"- Livre: '${tx.book_loans.title}' emprunté par ${tx.user.name} le ${tx.timestamp}")
+            println(s"- Book: '${tx.book_loans.title}' borrowed by ${tx.user.name} on ${tx.timestamp}")
           }
 
       case "0" =>
