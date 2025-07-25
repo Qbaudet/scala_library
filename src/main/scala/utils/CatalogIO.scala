@@ -29,7 +29,7 @@ object CatalogIO:
   def saveBooks(catalog: Catalog, filePath:String): Unit = {
     val path = Paths.get(filePath)
     Files.createDirectories(path.getParent)
-    val json = upickle.default.write(catalog.books.toList)
+    val json = upickle.default.write(catalog.books.toList, indent=4)
     Files.write(path, json.getBytes(StandardCharsets.UTF_8))
 
     // On vérifie que le fichier a bien été créé
@@ -51,7 +51,7 @@ object CatalogIO:
   def saveUsers(catalog: Catalog, filePath:String): Unit = {
     val path = Paths.get(filePath)
     Files.createDirectories(path.getParent)
-    val json = upickle.default.write(catalog.users.toList)
+    val json = upickle.default.write(catalog.users.toList, indent=4)
     Files.write(path, json.getBytes(StandardCharsets.UTF_8))
 
     // On vérifie que le fichier a bien été créé
