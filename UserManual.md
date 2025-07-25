@@ -1,3 +1,4 @@
+
 # Library Management System – User Manual
 
 This document provides a guide on how to interact with the **Library Management System** via its **console-based menu interface**. It outlines the functionalities available to different user roles: **Member**, **Librarian**, and **Faculty**, along with illustrative **use case scenarios** and **console interaction examples**.
@@ -7,16 +8,14 @@ This document provides a guide on how to interact with the **Library Management 
 ## 1. System Overview
 
 The Library Management System is designed to manage:
-
 - Books
 - Users
 - Borrowing transactions
 
 It supports three distinct user roles, each with specific permissions:
-
-- **Member**: Can borrow books, return books, and view available books.
-- **Librarian**: Has full control over books (create, delete), can manage members (create, delete, list), and handle borrowing/returning for members.
-- **Faculty**: Can view the list of members, add new members, and delete members.
+- **Member**: Can borrow books, return books, browse catalogs, and receive recommendations.
+- **Librarian**: Has full control over books (create, delete), can manage transactions, and view statistics.
+- **Faculty**: Can manage users (create, delete, list).
 
 ---
 
@@ -31,209 +30,129 @@ sbt run
 ### Login
 
 ```text
-Welcome to the Library Management System!
-Please enter your ID
+Welcome to the Library Management System! Enter your user ID:
 ```
 
-- If your account exists, you'll be logged in automatically.
-- If not, you'll be redirected to the user creation page.
 
-> See **"Creating an account"** for more details.
+- If your account exists, you'll be logged in automatically
+- If not, you'll be redirected to the user creation page
 
 ### Main Menu
-
-Once logged in, you will see a menu specific to your role. You interact by entering the number corresponding to your desired action and pressing Enter.
-
-### Prompts for Information
-
-For actions requiring specific input (e.g., ISBN, member name), the system will prompt you accordingly.
-
-### Returning to Menu
-
-After most operations, the system displays a message and returns you to your role's main menu.
+After logging in, you will see a menu specific to your role.
 
 ---
 
-## 3. User Roles and Use Case Examples
+## 3. Role-Specific Features
 
-### 3.1 Member Actions
+### 3.1 Member Menu
 
-Members can borrow and return books, and check availability.
+Members have access to:
 
-#### Scenario 1: Borrow a Book
+1. **Browse books**
+2. **Borrow a book**
+3. **Return a book**
+4. **Get recommendations**
 
-**User**: Alice (ID: 1) wants to borrow *"The Lord of the Rings"*.
+#### Example: Borrowing a Book
 
 ```text
-Hello, Alice (Member)!
-Member Menu:
-1. View Available Books
-2. Borrow a Book
-3. Return a Book
-4. Logout
-Enter your choice (1-4): 2
+== Member Menu ==
+1. Browse books
+2. Borrow a book
+3. Return a book
+4. Get recommendations
+5. Exit
 
---- Borrow a Book ---
-Enter the ISBN of the book you wish to borrow: 978-0618053267
-
-Processing request...
-Success: Book 'The Lord of the Rings' borrowed by Member 1.
+Choose an option: 2 Enter ISBN to borrow: 978-0618053267 Book 'The Lord of the Rings' successfully borrowed!
 ```
 
-#### Scenario 2: Return a Book
+#### Example: Getting Recommendations
 
 ```text
-Enter your choice (1-4): 3
-
---- Return a Book ---
-Enter the ISBN of the book you wish to return: 978-0618053267
-
-Processing request...
-Success: Book 'The Lord of the Rings' returned by Member M001.
+Choose an option: 4
+Here are some recommendations based on your previous loans:
+- Dune by Frank Herbert (1965) Genre: Science Fiction ISBN: 978-0441013593
 ```
 
-#### Scenario 3: View Available Books
+### 3.2 Librarian Menu
 
-**User**: Bob (ID: 2) wants to see the available books.
+Librarians can access:
+
+1. **Add a new book**
+2. **Remove a book**
+3. **Search for a book**
+4. **View available books**
+5. **View statistics**
+6. **View ongoing transactions**
+
+#### Example: Adding a Book
 
 ```text
-Enter your choice (1-4): 1
+--- Librarian Menu ---
+1. Add a new book
+2. Remove a book
+3. Search for a book
+4. View available books
+5. View statistics
+6. View ongoing transactions
+7. Exit
 
---- Available Books ---
-- Title: "1984", Author: "George Orwell", ISBN: "978-0451524935", Available: true
-- Title: "To Kill a Mockingbird", Author: "Harper Lee", ISBN: "978-0446310789", Available: true
-
-Press Enter to continue...
+Select an option: 1
+== Add a New Book == Enter ISBN (numbers only): 978-0441013593 Enter title: Dune Enter authors (comma-separated): Frank Herbert Enter publication year: 1965 Available genres: Programming, Poetry, Computer Science, Machine Learning, Other Enter genre: Other Is the book available? [y/n]: y
+Book successfully added.
 ```
 
----
-
-### 3.2 Librarian Actions
-
-Librarians manage books, members, and assist with transactions.
-
-#### Scenario 4: Add a New Book
-
-**User**: Mr. Smith (ID: 10) adds *"Dune"* to the library.
+#### Example: Viewing Statistics
 
 ```text
-Enter your choice (1-4): 1
-
---- Manage Books ---
-1. Add New Book
-2. Delete Book
-3. Back to Main Menu
-Enter your choice (1-3): 1
-
---- Add New Book ---
-Enter ISBN: 978-0441013593
-Enter Title: Dune
-Enter Author: Frank Herbert
-Enter Publication Year: 1965
-Enter Genre: Science Fiction
-
-Processing request...
-Success: Book 'Dune' (ISBN: 978-0441013593) added to the catalog.
+Select option: 5
+General statistics: Total books: 150 Available books: 120 Unavailable books: 30 Available genres: Programming, Poetry, Computer Science, Machine Learning, Other Average publication year: 1998 Most common genre: Computer Science
 ```
 
-#### Scenario 5: Register a New Member
+### 3.3 Faculty Menu
+
+Faculty members can:
+
+1. **Add a new user**
+2. **Remove a user**
+3. **View all users**
+
+#### Example: Adding a User
 
 ```text
-Enter your choice (1-4): 2
+--- Faculty Menu ---
+1. Add a new user
+2. Remove a user
+3. View all users
+4. Exit
 
---- Manage Members ---
-1. Create New Member
-2. Delete Member
-3. List All Members
-4. Back to Main Menu
-Enter your choice (1-4): 1
-
---- Create New Member ---
-Enter new Member ID (e.g., M004): M004
-Enter Member's Name: Diana
-
-Processing request...
-Success: New Member 'Diana' with ID M004 created.
-```
-
-#### Scenario 6: Help Member Borrow a Book
-
-**User**: Mr. Smith assists Charlie (ID: M003) in borrowing *"1984"*.
-
-```text
-Enter your choice (1-4): 3
-
---- Handle Loans for Members ---
-1. Borrow Book for Member
-2. Return Book for Member
-3. Back to Main Menu
-Enter your choice (1-3): 1
-
---- Borrow Book for Member ---
-Enter Member ID: M003
-Enter ISBN of the book: 978-0451524935
-
-Processing request...
-Success: Book '1984' borrowed by Member M003.
+Select an option: 1
+Enter ID for new user: 5 Enter name: John Smith Choose role: [1] Member [2] Librarian [3] Faculty 1
+User successfully added.
 ```
 
 ---
 
-### 3.3 Faculty Actions
+## 4. Error Handling
 
-Faculty can manage members within the system.
+The system displays clear messages for common errors:
 
-#### Scenario 7: List All Members
+- **Input Errors**:
+    - "Invalid ID format."
+    - "Invalid genre entered."
 
-**User**: Professor Jones (ID: F001) wants to list all registered users.
+- **Transaction Errors**:
+    - "Error: Book with ISBN '...' not found."
+    - "Error: No active loan found for ISBN '...'"
 
-```text
-Enter your choice (1-3): 3
-Enter your Faculty ID: F001
-
---- All Registered Members ---
-- ID: M001, Name: Alice, Role: Member
-- ID: M002, Name: Bob, Role: Member
-- ID: M003, Name: Charlie, Role: Member
-- ID: L001, Name: Mr. Smith, Role: Librarian
-- ID: F001, Name: Professor Jones, Role: Faculty
-
-Press Enter to continue...
-```
-
-#### Scenario 8: Delete a Member
-
-**User**: Professor Jones removes student M004.
-
-```text
-Enter your choice (1-4): 2
-
---- Delete Member ---
-Enter Member ID to delete: M004
-
-Processing request...
-Success: Member M004 deleted.
-```
-
----
-
-## 4. Error Handling and System Messages
-
-- **Success Messages**:  
-  *"Book 'Dune' added."*
-
-- **Error Messages**:  
-  *"Error: Book with ISBN '...' is currently unavailable."*  
-  *"Error: Cannot delete member '...' as they currently have borrowed books."*
-
-- **Invalid Input**:  
-  If you enter an invalid menu choice or wrong data type, the system will prompt you to try again.
+- **Authentication Errors**:
+    - "Error: User ID '...' already exists."
+    - "Error: User with ID '...' not found."
 
 ---
 
 ## 5. Exiting the System
 
 To exit the application:
-
-- Choose **Exit** from your current role's menu.
-- This will shut down the app
+- Select option "0. Exit" from any menu
+- The system will save all changes before closing
