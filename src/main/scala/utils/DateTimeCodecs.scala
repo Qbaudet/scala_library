@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter
  */
 object DateTimeCodecs:
   private val fmt = DateTimeFormatter.ISO_LOCAL_DATE_TIME
-
+  
   /**
    * Instance uPickle pour convertir LocalDateTime en chaîne ISO et inversement.
    *
@@ -26,3 +26,4 @@ object DateTimeCodecs:
     // Lit: String -> LocalDateTime
     str => LocalDateTime.parse(str, fmt)
   )
+
