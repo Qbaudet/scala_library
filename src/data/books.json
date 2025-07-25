@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "ISBN": "123456",
+    "title": "Test",
+    "authors": [
+      "Test"
+    ],
+    "publicationyear": 2025,
+    "genre": "Programming",
+    "availability": true
+  }
+]
