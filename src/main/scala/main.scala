@@ -150,14 +150,15 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
                   genre = genre,
                   availability = available
                 )
-
-                if user.addBook(newBook, localCatalog) then
-                  CatalogIO.saveBooks(localCatalog, bookPath)
-                  println("Book added successfully.")
-                else
-                println("Failed to add book. Check validation errors.")
-
-
+                
+                user.addBook(newBook, localCatalog) match
+                  case Right(updatedCatalog) =>
+                    localCatalog = updatedCatalog
+                    CatalogIO.saveBooks(localCatalog, bookPath)
+                    println("Book added successfully.")
+                
+                  case Left(error) =>
+                    println(s"Error: $error")
 
               case None =>
                 println("Invalid genre entered.")

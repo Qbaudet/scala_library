@@ -14,10 +14,6 @@ sealed trait User:
   def name: String
   def id: UserId
 
-  def addBook(book: Book_Entity, catalog: Catalog): Boolean =
-    false
-
-
 object User:
   import upickle.default.{ReadWriter, macroRW, readwriter}
 
@@ -58,16 +54,11 @@ case class Librarian(name: String, employeeId: UserId) extends User:
    * Ajoute un livre au catalogue après validation.
    * Si le livre est valide, il est ajouté au catalogue.
    *
-   * @param book    Le livre à ajouter au catalogue.
+   * @param book Le livre à ajouter au catalogue.
    * @param catalog Le catalogue où ajouter le livre.
    */
-  override def addBook(book: Book_Entity, catalog: Catalog): Boolean =
-    Validators.validateBook(book) match
-      case Right(validBook) =>
-        catalog.books = validBook :: catalog.books // mutate book list
-        true
-      case Left(_) =>
-        false
+  def addBook(book: Book_Entity, catalog: Catalog): Either[String, Catalog] =
+    Validators.validateBook(book).flatMap(validBook => catalog.addBook(validBook))
 
   /**
    * Retire un livre du catalogue à partir de son ISBN.

@@ -41,14 +41,12 @@ case class Catalog(
    * @param book Le livre à ajouter au catalogue.
    * @return Un `Either` avec une erreur en cas de validation échouée ou un `Catalog` mis à jour en cas de succès.
    */
-  def addBook(book: Book_Entity): Either[String, Unit] =
+  def addBook(book: Book_Entity): Either[String, Catalog] =
     Validators.validateBook(book).map { validBook =>
-      this.books = validBook :: this.books
+      copy(books = validBook :: books)
     }
 
-
-
-  /**
+    /**
    * Retire un livre du catalogue en fonction de son ISBN.
    * Cette méthode renvoie un nouveau catalogue sans le livre spécifié.
    *
