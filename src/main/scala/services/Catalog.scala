@@ -2,9 +2,10 @@ package services
 
 import models.ISBN.ISBN
 import models.UserId.UserId
-import models.{Book_Entity, Transaction, User}
-import utils.Validators
+import models.*
+import utils.*
 
+import java.nio.file.Paths
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -21,7 +22,8 @@ import scala.concurrent.{ExecutionContext, Future}
 case class Catalog(
   var books: List[Book_Entity],
   var users: List[User],
-  var transactions: List[Transaction] = Nil
+  var transactions: List[Transaction] = Nil,
+  txFile: String
   ):
 
   /**
@@ -78,6 +80,7 @@ case class Catalog(
   def removeUser(userId: UserId): Catalog =
     copy(users = users.filterNot(_.id == userId))
 
+  val txPath = Paths.get("src", "data", "transactions.json").toString
   /**
    * Enregistre une transaction de prêt ou de réservation de livre.
    * Cette méthode vérifie la validité de la transaction et l'ajoute au catalogue si elle est valide.
@@ -87,9 +90,11 @@ case class Catalog(
    */
   def recordTransaction(tx: Transaction): Either[String, Catalog] =
     Validators.validateTransaction(tx.book_loans, tx.user, this, tx.timestamp, tx.returns, tx.reservation)
-    .map(validTx =>
-      copy(transactions = validTx :: transactions)
-    )
+      .map { validTx =>
+        val updated = copy(transactions = validTx :: transactions)
+        utils.CatalogIO.saveTransactions(updated, txFile)
+        updated
+      }
 
   /**
    * Recherche des livres dans le catalogue en fonction d'une requête.
@@ -110,7 +115,8 @@ case class Catalog(
           book.availability.toString == query
       }
       .map(book =>
-        s"- ${book.title}, by ${book.authors.mkString(", ")} in ${book.publicationyear}, its genre is ${book.genre}, and it is available: ${book.availability}"
+        s"- ${book.title}, by ${book.authors.mkString(", ")} in ${book.publicationyear}, " +
+          s"its genre is ${book.genre}, and it is available: ${book.availability}"
       )
       .toList
     }

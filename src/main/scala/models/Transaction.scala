@@ -4,6 +4,10 @@ import models.Book_Entity
 
 import java.time.LocalDateTime
 
+import models.User.given
+
+import utils.DateTimeCodecs.given
+
 /**
  * Représente une transaction de prêt d'un livre dans le catalogue.
  * Une transaction enregistre l'emprunt d'un livre par un utilisateur, ainsi que les informations
@@ -22,3 +26,10 @@ case class Transaction(
   returns: Option[LocalDateTime] = None,
   reservation: Option[LocalDateTime] = None
   )
+
+object Transaction:
+  import upickle.default.{ReadWriter, macroRW, write}
+  /**
+   * Sérialisation/désérialisation JSON pour Transaction.
+   * */
+  given rwTransaction: ReadWriter[Transaction] = macroRW
