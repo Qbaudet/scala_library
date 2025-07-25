@@ -1,1 +1,1202 @@
-[]
+[
+  {
+    "ISBN": "001",
+    "title": "L'Étranger",
+    "authors": ["Albert Camus"],
+    "publicationyear": 1942,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "002",
+    "title": "Le Petit Prince",
+    "authors": ["Antoine de Saint-Exupéry"],
+    "publicationyear": 1943,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "003",
+    "title": "Les Misérables",
+    "authors": ["Victor Hugo"],
+    "publicationyear": 1862,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "004",
+    "title": "Madame Bovary",
+    "authors": ["Gustave Flaubert"],
+    "publicationyear": 1856,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "005",
+    "title": "Germinal",
+    "authors": ["Émile Zola"],
+    "publicationyear": 1885,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "006",
+    "title": "La Peste",
+    "authors": ["Albert Camus"],
+    "publicationyear": 1947,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "007",
+    "title": "Voyage au bout de la nuit",
+    "authors": ["Louis-Ferdinand Céline"],
+    "publicationyear": 1932,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "008",
+    "title": "Au bonheur des dames",
+    "authors": ["Émile Zola"],
+    "publicationyear": 1883,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "009",
+    "title": "Candide",
+    "authors": ["Voltaire"],
+    "publicationyear": 1759,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "010",
+    "title": "Le Rouge et le Noir",
+    "authors": ["Stendhal"],
+    "publicationyear": 1830,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "011",
+    "title": "Cent ans de solitude",
+    "authors": ["Gabriel García Márquez"],
+    "publicationyear": 1967,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "012",
+    "title": "1984",
+    "authors": ["George Orwell"],
+    "publicationyear": 1949,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "013",
+    "title": "Pride and Prejudice",
+    "authors": ["Jane Austen"],
+    "publicationyear": 1813,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "014",
+    "title": "To Kill a Mockingbird",
+    "authors": ["Harper Lee"],
+    "publicationyear": 1960,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "015",
+    "title": "The Great Gatsby",
+    "authors": ["F. Scott Fitzgerald"],
+    "publicationyear": 1925,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "016",
+    "title": "Harry Potter à l'école des sorciers",
+    "authors": ["J.K. Rowling"],
+    "publicationyear": 1997,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "017",
+    "title": "Le Seigneur des Anneaux",
+    "authors": ["J.R.R. Tolkien"],
+    "publicationyear": 1954,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "018",
+    "title": "Les Fleurs du Mal",
+    "authors": ["Charles Baudelaire"],
+    "publicationyear": 1857,
+    "genre": "Poetry",
+    "availability": true
+  },
+  {
+    "ISBN": "019",
+    "title": "Du côté de chez Swann",
+    "authors": ["Marcel Proust"],
+    "publicationyear": 1913,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "020",
+    "title": "La Nuit des temps",
+    "authors": ["René Barjavel"],
+    "publicationyear": 1968,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "021",
+    "title": "Vingt Mille Lieues sous les mers",
+    "authors": ["Jules Verne"],
+    "publicationyear": 1870,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "022",
+    "title": "Le Compte de Monte-Cristo",
+    "authors": ["Alexandre Dumas"],
+    "publicationyear": 1844,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "023",
+    "title": "Les Trois Mousquetaires",
+    "authors": ["Alexandre Dumas"],
+    "publicationyear": 1844,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "024",
+    "title": "Le Père Goriot",
+    "authors": ["Honoré de Balzac"],
+    "publicationyear": 1835,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "025",
+    "title": "Thérèse Raquin",
+    "authors": ["Émile Zola"],
+    "publicationyear": 1867,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "026",
+    "title": "La Condition humaine",
+    "authors": ["André Malraux"],
+    "publicationyear": 1933,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "027",
+    "title": "L'Amant",
+    "authors": ["Marguerite Duras"],
+    "publicationyear": 1984,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "028",
+    "title": "Vol de nuit",
+    "authors": ["Antoine de Saint-Exupéry"],
+    "publicationyear": 1931,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "029",
+    "title": "Le Grand Meaulnes",
+    "authors": ["Alain-Fournier"],
+    "publicationyear": 1913,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "030",
+    "title": "Chanson douce",
+    "authors": ["Leïla Slimani"],
+    "publicationyear": 2016,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "031",
+    "title": "La Tresse",
+    "authors": ["Laetitia Colombani"],
+    "publicationyear": 2017,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "032",
+    "title": "Au revoir là-haut",
+    "authors": ["Pierre Lemaitre"],
+    "publicationyear": 2013,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "033",
+    "title": "L'Anomalie",
+    "authors": ["Hervé Le Tellier"],
+    "publicationyear": 2020,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "034",
+    "title": "Trois",
+    "authors": ["Valérie Perrin"],
+    "publicationyear": 2019,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "035",
+    "title": "Changer l'eau des fleurs",
+    "authors": ["Valérie Perrin"],
+    "publicationyear": 2018,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "036",
+    "title": "Petit Pays",
+    "authors": ["Gaël Faye"],
+    "publicationyear": 2016,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "037",
+    "title": "La Vérité sur l'affaire Harry Quebert",
+    "authors": ["Joël Dicker"],
+    "publicationyear": 2012,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "038",
+    "title": "Les Dents de la nuit",
+    "authors": ["Jean-Christophe Grangé"],
+    "publicationyear": 2007,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "039",
+    "title": "Un sac de billes",
+    "authors": ["Joseph Joffo"],
+    "publicationyear": 1973,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "040",
+    "title": "L'Écume des jours",
+    "authors": ["Boris Vian"],
+    "publicationyear": 1947,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "041",
+    "title": "Le Mur",
+    "authors": ["Jean-Paul Sartre"],
+    "publicationyear": 1939,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "042",
+    "title": "Antigone",
+    "authors": ["Jean Anouilh"],
+    "publicationyear": 1944,
+    "genre": "Other",
+    "availability": true
+  },
+  {
+    "ISBN": "043",
+    "title": "Cyrano de Bergerac",
+    "authors": ["Edmond Rostand"],
+    "publicationyear": 1897,
+    "genre": "Other",
+    "availability": true
+  },
+  {
+    "ISBN": "044",
+    "title": "La Gloire de mon père",
+    "authors": ["Marcel Pagnol"],
+    "publicationyear": 1957,
+    "genre": "Biography",
+    "availability": true
+  },
+  {
+    "ISBN": "045",
+    "title": "Manon Lescaut",
+    "authors": ["Antoine-François Prévost"],
+    "publicationyear": 1731,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "046",
+    "title": "Les Liaisons dangereuses",
+    "authors": ["Pierre Choderlos de Laclos"],
+    "publicationyear": 1782,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "047",
+    "title": "L'Assommoir",
+    "authors": ["Émile Zola"],
+    "publicationyear": 1877,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "048",
+    "title": "Bel-Ami",
+    "authors": ["Guy de Maupassant"],
+    "publicationyear": 1885,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "049",
+    "title": "Le Horla",
+    "authors": ["Guy de Maupassant"],
+    "publicationyear": 1887,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "050",
+    "title": "La Princesse de Clèves",
+    "authors": ["Madame de La Fayette"],
+    "publicationyear": 1678,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "051",
+    "title": "La Promesse de l'aube",
+    "authors": ["Romain Gary"],
+    "publicationyear": 1960,
+    "genre": "Biography",
+    "availability": true
+  },
+  {
+    "ISBN": "052",
+    "title": "L'Alchimiste",
+    "authors": ["Paulo Coelho"],
+    "publicationyear": 1988,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "053",
+    "title": "Le Parfum",
+    "authors": ["Patrick Süskind"],
+    "publicationyear": 1985,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "054",
+    "title": "Le Monde de Sophie",
+    "authors": ["Jostein Gaarder"],
+    "publicationyear": 1991,
+    "genre": "Other",
+    "availability": true
+  },
+  {
+    "ISBN": "055",
+    "title": "Le Nom de la rose",
+    "authors": ["Umberto Eco"],
+    "publicationyear": 1980,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "056",
+    "title": "Clean Code",
+    "authors": ["Robert C. Martin"],
+    "publicationyear": 2008,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "057",
+    "title": "The Pragmatic Programmer",
+    "authors": ["Andrew Hunt", "David Thomas"],
+    "publicationyear": 1999,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "058",
+    "title": "Structure and Interpretation of Computer Programs",
+    "authors": ["Harold Abelson", "Gerald Jay Sussman"],
+    "publicationyear": 1984,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "059",
+    "title": "Code Complete",
+    "authors": ["Steve McConnell"],
+    "publicationyear": 1993,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "060",
+    "title": "Introduction to Algorithms",
+    "authors": ["Thomas H. Cormen", "Charles E. Leiserson", "Ronald L. Rivest", "Clifford Stein"],
+    "publicationyear": 1990,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "061",
+    "title": "Design Patterns: Elements of Reusable Object-Oriented Software",
+    "authors": ["Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides"],
+    "publicationyear": 1994,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "062",
+    "title": "The Mythical Man-Month",
+    "authors": ["Frederick Brooks Jr."],
+    "publicationyear": 1975,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "063",
+    "title": "Gödel, Escher, Bach: An Eternal Golden Braid",
+    "authors": ["Douglas Hofstadter"],
+    "publicationyear": 1979,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "064",
+    "title": "Sapiens: A Brief History of Humankind",
+    "authors": ["Yuval Noah Harari"],
+    "publicationyear": 2014,
+    "genre": "History",
+    "availability": true
+  },
+  {
+    "ISBN": "065",
+    "title": "Factfulness",
+    "authors": ["Hans Rosling"],
+    "publicationyear": 2018,
+    "genre": "Other",
+    "availability": true
+  },
+  {
+    "ISBN": "066",
+    "title": "Atomic Habits",
+    "authors": ["James Clear"],
+    "publicationyear": 2018,
+    "genre": "Other",
+    "availability": true
+  },
+  {
+    "ISBN": "067",
+    "title": "Thinking, Fast and Slow",
+    "authors": ["Daniel Kahneman"],
+    "publicationyear": 2011,
+    "genre": "Other",
+    "availability": true
+  },
+  {
+    "ISBN": "068",
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "authors": ["Douglas Adams"],
+    "publicationyear": 1979,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "069",
+    "title": "Dune",
+    "authors": ["Frank Herbert"],
+    "publicationyear": 1965,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "070",
+    "title": "The Lord of the Rings",
+    "authors": ["J.R.R. Tolkien"],
+    "publicationyear": 1954,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "071",
+    "title": "Harry Potter and the Sorcerer's Stone",
+    "authors": ["J.K. Rowling"],
+    "publicationyear": 1997,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "072",
+    "title": "Pride and Prejudice",
+    "authors": ["Jane Austen"],
+    "publicationyear": 1813,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "073",
+    "title": "To Kill a Mockingbird",
+    "authors": ["Harper Lee"],
+    "publicationyear": 1960,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "074",
+    "title": "The Great Gatsby",
+    "authors": ["F. Scott Fitzgerald"],
+    "publicationyear": 1925,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "075",
+    "title": "1984",
+    "authors": ["George Orwell"],
+    "publicationyear": 1949,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "076",
+    "title": "The Martian",
+    "authors": ["Andy Weir"],
+    "publicationyear": 2011,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "077",
+    "title": "Project Hail Mary",
+    "authors": ["Andy Weir"],
+    "publicationyear": 2021,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "078",
+    "title": "Ubik",
+    "authors": ["Philip K. Dick"],
+    "publicationyear": 1969,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "079",
+    "title": "Do Androids Dream of Electric Sheep?",
+    "authors": ["Philip K. Dick"],
+    "publicationyear": 1968,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "080",
+    "title": "The Road",
+    "authors": ["Cormac McCarthy"],
+    "publicationyear": 2006,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "081",
+    "title": "Divergent",
+    "authors": ["Veronica Roth"],
+    "publicationyear": 2011,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "082",
+    "title": "The Hunger Games",
+    "authors": ["Suzanne Collins"],
+    "publicationyear": 2008,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "083",
+    "title": "Fahrenheit 451",
+    "authors": ["Ray Bradbury"],
+    "publicationyear": 1953,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "084",
+    "title": "Brave New World",
+    "authors": ["Aldous Huxley"],
+    "publicationyear": 1932,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "085",
+    "title": "The Handmaid's Tale",
+    "authors": ["Margaret Atwood"],
+    "publicationyear": 1985,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "086",
+    "title": "Frankenstein",
+    "authors": ["Mary Shelley"],
+    "publicationyear": 1818,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "087",
+    "title": "Dracula",
+    "authors": ["Bram Stoker"],
+    "publicationyear": 1897,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "088",
+    "title": "The Picture of Dorian Gray",
+    "authors": ["Oscar Wilde"],
+    "publicationyear": 1890,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "089",
+    "title": "Moby Dick",
+    "authors": ["Herman Melville"],
+    "publicationyear": 1851,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "090",
+    "title": "Jane Eyre",
+    "authors": ["Charlotte Brontë"],
+    "publicationyear": 1847,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "091",
+    "title": "Wuthering Heights",
+    "authors": ["Emily Brontë"],
+    "publicationyear": 1847,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "092",
+    "title": "The Catcher in the Rye",
+    "authors": ["J.D. Salinger"],
+    "publicationyear": 1951,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "093",
+    "title": "Of Mice and Men",
+    "authors": ["John Steinbeck"],
+    "publicationyear": 1937,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "094",
+    "title": "The Grapes of Wrath",
+    "authors": ["John Steinbeck"],
+    "publicationyear": 1939,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "095",
+    "title": "Gone with the Wind",
+    "authors": ["Margaret Mitchell"],
+    "publicationyear": 1936,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "096",
+    "title": "The Hobbit",
+    "authors": ["J.R.R. Tolkien"],
+    "publicationyear": 1937,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "097",
+    "title": "Alice in Wonderland",
+    "authors": ["Lewis Carroll"],
+    "publicationyear": 1865,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "098",
+    "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1950,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "099",
+    "title": "The Maze Runner",
+    "authors": ["James Dashner"],
+    "publicationyear": 2009,
+    "genre": "ScienceFiction",
+    "availability": true
+  },
+  {
+    "ISBN": "100",
+    "title": "Deep Learning",
+    "authors": ["Ian Goodfellow", "Yoshua Bengio", "Aaron Courville"],
+    "publicationyear": 2016,
+    "genre": "MachineLearning",
+    "availability": true
+  },
+  {
+    "ISBN": "101",
+    "title": "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow",
+    "authors": ["Aurélien Géron"],
+    "publicationyear": 2017,
+    "genre": "MachineLearning",
+    "availability": true
+  },
+  {
+    "ISBN": "102",
+    "title": "Pattern Recognition and Machine Learning",
+    "authors": ["Christopher M. Bishop"],
+    "publicationyear": 2006,
+    "genre": "MachineLearning",
+    "availability": true
+  },
+  {
+    "ISBN": "103",
+    "title": "Elements of Statistical Learning",
+    "authors": ["Trevor Hastie", "Robert Tibshirani", "Jerome Friedman"],
+    "publicationyear": 2001,
+    "genre": "MachineLearning",
+    "availability": true
+  },
+  {
+    "ISBN": "104",
+    "title": "Python Crash Course",
+    "authors": ["Eric Matthes"],
+    "publicationyear": 2015,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "105",
+    "title": "Automate the Boring Stuff with Python",
+    "authors": ["Al Sweigart"],
+    "publicationyear": 2015,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "106",
+    "title": "Learning Python",
+    "authors": ["Mark Lutz"],
+    "publicationyear": 1999,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "107",
+    "title": "Cracking the Coding Interview",
+    "authors": ["Gayle Laakmann McDowell"],
+    "publicationyear": 2000,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "108",
+    "title": "Compilers: Principles, Techniques, and Tools",
+    "authors": ["Alfred V. Aho", "Monica S. Lam", "Ravi Sethi", "Jeffrey D. Ullman"],
+    "publicationyear": 1986,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "109",
+    "title": "Computer Networking: A Top-Down Approach",
+    "authors": ["James Kurose", "Keith Ross"],
+    "publicationyear": 2000,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "110",
+    "title": "Operating System Concepts",
+    "authors": ["Abraham Silberschatz", "Peter B. Galvin", "Greg Gagne"],
+    "publicationyear": 1991,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "111",
+    "title": "The Art of Computer Programming, Vol. 1: Fundamental Algorithms",
+    "authors": ["Donald Knuth"],
+    "publicationyear": 1968,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "112",
+    "title": "The Art of Computer Programming, Vol. 2: Seminumerical Algorithms",
+    "authors": ["Donald Knuth"],
+    "publicationyear": 1969,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "113",
+    "title": "The Art of Computer Programming, Vol. 3: Sorting and Searching",
+    "authors": ["Donald Knuth"],
+    "publicationyear": 1973,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "114",
+    "title": "Computer Systems: A Programmer's Perspective",
+    "authors": ["Randal E. Bryant", "David R. O'Hallaron"],
+    "publicationyear": 2003,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "115",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "authors": ["Stuart Russell", "Peter Norvig"],
+    "publicationyear": 1995,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "116",
+    "title": "The Algorithm Design Manual",
+    "authors": ["Steven S. Skiena"],
+    "publicationyear": 1998,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "117",
+    "title": "Data Structures and Algorithms in Java",
+    "authors": ["Robert Lafore"],
+    "publicationyear": 1996,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "118",
+    "title": "Effective Java",
+    "authors": ["Joshua Bloch"],
+    "publicationyear": 2001,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "119",
+    "title": "Head First Design Patterns",
+    "authors": ["Elisabeth Freeman", "Kathy Sierra"],
+    "publicationyear": 2004,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "120",
+    "title": "Clean Architecture",
+    "authors": ["Robert C. Martin"],
+    "publicationyear": 2017,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "121",
+    "title": "Refactoring: Improving the Design of Existing Code",
+    "authors": ["Martin Fowler"],
+    "publicationyear": 1999,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "122",
+    "title": "The C++ Programming Language",
+    "authors": ["Bjarne Stroustrup"],
+    "publicationyear": 1985,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "123",
+    "title": "Programming Rust",
+    "authors": ["Jim Blandy", "Jason Orendorff", "Leonora F.S. Tindall"],
+    "publicationyear": 2017,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "124",
+    "title": "The Go Programming Language",
+    "authors": ["Alan A. A. Donovan", "Brian W. Kernighan"],
+    "publicationyear": 2015,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "125",
+    "title": "JavaScript: The Good Parts",
+    "authors": ["Douglas Crockford"],
+    "publicationyear": 2008,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "126",
+    "title": "Learning JavaScript Design Patterns",
+    "authors": ["Addy Osmani"],
+    "publicationyear": 2012,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "127",
+    "title": "You Don't Know JS Yet: Get Started",
+    "authors": ["Kyle Simpson"],
+    "publicationyear": 2020,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "128",
+    "title": "Eloquent JavaScript",
+    "authors": ["Marijn Haverbeke"],
+    "publicationyear": 2011,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "129",
+    "title": "Functional Programming in Scala",
+    "authors": ["Paul Chiusano", "Runar Bjarnason"],
+    "publicationyear": 2014,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "130",
+    "title": "Programming in Scala",
+    "authors": ["Martin Odersky", "Lex Spoon", "Bill Venners"],
+    "publicationyear": 2008,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "131",
+    "title": "Category Theory for Programmers",
+    "authors": ["Bartosz Milewski"],
+    "publicationyear": 2019,
+    "genre": "ComputerScience",
+    "availability": true
+  },
+  {
+    "ISBN": "132",
+    "title": "Domain-Driven Design: Tackling Complexity in the Heart of Software",
+    "authors": ["Eric Evans"],
+    "publicationyear": 2003,
+    "genre": "Programming",
+    "availability": true
+  },
+  {
+    "ISBN": "133",
+    "title": "Good Omens",
+    "authors": ["Terry Pratchett", "Neil Gaiman"],
+    "publicationyear": 1990,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "134",
+    "title": "American Gods",
+    "authors": ["Neil Gaiman"],
+    "publicationyear": 2001,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "135",
+    "title": "Neverwhere",
+    "authors": ["Neil Gaiman"],
+    "publicationyear": 1996,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "136",
+    "title": "The Ocean at the End of the Lane",
+    "authors": ["Neil Gaiman"],
+    "publicationyear": 2013,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "137",
+    "title": "Stardust",
+    "authors": ["Neil Gaiman"],
+    "publicationyear": 1999,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "138",
+    "title": "Coraline",
+    "authors": ["Neil Gaiman"],
+    "publicationyear": 2002,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "139",
+    "title": "The Graveyard Book",
+    "authors": ["Neil Gaiman"],
+    "publicationyear": 2008,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "140",
+    "title": "Discworld: Mort",
+    "authors": ["Terry Pratchett"],
+    "publicationyear": 1987,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "141",
+    "title": "Discworld: Guards! Guards!",
+    "authors": ["Terry Pratchett"],
+    "publicationyear": 1989,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "142",
+    "title": "Discworld: Small Gods",
+    "authors": ["Terry Pratchett"],
+    "publicationyear": 1992,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "143",
+    "title": "The Chronicles of Narnia: Prince Caspian",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1951,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "144",
+    "title": "The Chronicles of Narnia: The Voyage of the Dawn Treader",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1952,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "145",
+    "title": "The Chronicles of Narnia: The Silver Chair",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1953,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "146",
+    "title": "The Chronicles of Narnia: The Horse and His Boy",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1954,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "147",
+    "title": "The Chronicles of Narnia: The Magician's Nephew",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1955,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "148",
+    "title": "The Chronicles of Narnia: The Last Battle",
+    "authors": ["C.S. Lewis"],
+    "publicationyear": 1956,
+    "genre": "Fantasy",
+    "availability": true
+  },
+  {
+    "ISBN": "149",
+    "title": "The Secret Garden",
+    "authors": ["Frances Hodgson Burnett"],
+    "publicationyear": 1911,
+    "genre": "Fiction",
+    "availability": true
+  },
+  {
+    "ISBN": "150",
+    "title": "Anne of Green Gables",
+    "authors": ["L.M. Montgomery"],
+    "publicationyear": 1908,
+    "genre": "Fiction",
+    "availability": true
+  }
+]

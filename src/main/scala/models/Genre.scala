@@ -11,11 +11,17 @@ import upickle.default.{ReadWriter, readwriter}
  * - `Poetry` : Poésie
  * - `ComputerScience` : Informatique
  * - `MachineLearning` : Apprentissage Automatique
+ * - `Fiction`: Fiction générale
+ * - `ScienceFiction`: Science-fiction
+ * - `Fantasy`: Fantasy
+ * - `History`: Histoire
+ * - `Biography`: Biographie
  * - `Other` : Autres genres non spécifiés
  */
 
 enum Genre:
-  case Programming, Poetry, ComputerScience, MachineLearning, Other
+  case Programming, Poetry, ComputerScience, MachineLearning,
+  Fiction, ScienceFiction, Fantasy, History, Biography, Other
 
   /**
    * Retourne une chaîne de caractères représentant le genre.
@@ -23,12 +29,16 @@ enum Genre:
    *
    * @return Une chaîne de caractères représentant le genre sous forme lisible.
    */
-
   override def toString: String = this match
     case Programming => "Programming"
     case Poetry => "Poetry"
     case ComputerScience => "Computer Science"
     case MachineLearning => "Machine Learning"
+    case Fiction => "Fiction"
+    case ScienceFiction => "Science Fiction"
+    case Fantasy => "Fantasy"
+    case History => "History"
+    case Biography => "Biography"
     case Other => "Other"
 
 object Genre:
@@ -39,23 +49,29 @@ object Genre:
    * La conversion est effectuée avec `bimap`, ce qui permet de convertir un genre en une chaîne de caractères
    * puis de reconvertir cette chaîne en un genre valide.
    */
-
   given rwGenre: ReadWriter[Genre] = readwriter[String].bimap(
     _.toString,
     {
       case "Programming" => Genre.Programming
       case "Poetry" => Genre.Poetry
+      case "ComputerScience" => Genre.ComputerScience
       case "Computer Science" => Genre.ComputerScience
+      case "MachineLearning" => Genre.MachineLearning
       case "Machine Learning" => Genre.MachineLearning
+      case "Fiction" => Genre.Fiction
+      case "ScienceFiction" => Genre.ScienceFiction
+      case "Science Fiction" => Genre.ScienceFiction
+      case "Fantasy" => Genre.Fantasy
+      case "History" => Genre.History
+      case "Biography" => Genre.Biography
       case "Other" => Genre.Other
-      case _ => throw new Exception("Invalid genre")
+      case unknown => throw new Exception(s"Invalid genre: $unknown")
     }
   )
 
   /**
    * Extension pour la classe `Genre` permettant d'effectuer des opérations supplémentaires sur les genres.
    */
-
   extension (genre: Genre)
 
     /**
@@ -71,5 +87,3 @@ object Genre:
      * @return La chaîne de caractères du genre après suppression des espaces.
      */
     def trim: String = genre.toString.trim
-
-
