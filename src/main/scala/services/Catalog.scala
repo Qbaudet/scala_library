@@ -23,7 +23,7 @@ case class Catalog(
   var books: List[Book_Entity],
   var users: List[User],
   var transactions: List[Transaction] = Nil,
-  txFile: String
+  txFile: String = "transactions.json"
   ):
 
   /**
