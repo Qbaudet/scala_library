@@ -1,6 +1,27 @@
 [
     {
         "book_loans": {
+            "ISBN": "147",
+            "title": "The Chronicles of Narnia: The Magician's Nephew",
+            "authors": [
+                "C.S. Lewis"
+            ],
+            "publicationyear": 1955,
+            "genre": "Fantasy",
+            "availability": true
+        },
+        "user": {
+            "$type": "models.Member",
+            "name": "joris",
+            "memberId": 5
+        },
+        "timestamp": "2025-07-26T00:31:24.160265",
+        "returns": [
+            "2025-07-26T00:32:20.789061"
+        ]
+    },
+    {
+        "book_loans": {
             "ISBN": "11111",
             "title": "Machine Learning",
             "authors": [
@@ -15,7 +36,7 @@
             "name": "Alice",
             "memberId": 1
         },
-        "timestamp": "2025-07-26T00:14:38.563196"
+        "timestamp": "2025-07-26T00:30:07.093371"
     },
     {
         "book_loans": {
@@ -33,6 +54,6 @@
             "name": "Alice",
             "memberId": 1
         },
-        "timestamp": "2025-07-26T00:14:38.563028"
+        "timestamp": "2025-07-26T00:30:07.093032"
     }
 ]

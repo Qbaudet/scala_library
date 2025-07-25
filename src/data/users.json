@@ -1,22 +1,22 @@
 [
-  {
-    "$type": "models.Member",
-    "name": "joris",
-    "memberId": 5
-  },
-  {
-    "$type": "models.Member",
-    "name": "qb",
-    "memberId": 3
-  },
-  {
-    "$type": "models.Faculty",
-    "name": "efrei",
-    "facultyId": 2
-  },
-  {
-    "$type": "models.Librarian",
-    "name": "Admin",
-    "employeeId": 1
-  }
+    {
+        "$type": "models.Member",
+        "name": "joris",
+        "memberId": 5
+    },
+    {
+        "$type": "models.Member",
+        "name": "qb",
+        "memberId": 3
+    },
+    {
+        "$type": "models.Faculty",
+        "name": "efrei",
+        "facultyId": 2
+    },
+    {
+        "$type": "models.Librarian",
+        "name": "Admin",
+        "employeeId": 1
+    }
 ]
