@@ -14,7 +14,7 @@ import upickle.default.{read, write}
  */
 object CatalogIO:
   // Stockage des données
-  private val dataDir = "src/data" 
+  private val dataDir = "src/data"
 
   /**
    * Sauvegarde les livres du catalogue dans un fichier JSON.
@@ -99,7 +99,7 @@ object CatalogIO:
     def saveTransactions(catalog: Catalog, fileName: String = "transactions.json"): Unit =
       val path = Paths.get(dataDir, fileName)
       Files.createDirectories(path.getParent)
-      val json = write(catalog.transactions)
+      val json = write(catalog.transactions, indent=4)
       Files.write(path, json.getBytes(StandardCharsets.UTF_8))
 
     /**
@@ -117,7 +117,7 @@ object CatalogIO:
         List.empty[Transaction]                 // ← renvoie aussi la List vide
       }
     }
-  
+
   /**
    * Remplace les données du catalogue avec de nouveaux livres et utilisateurs.
    *

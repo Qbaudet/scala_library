@@ -4,6 +4,8 @@ import models.Book_Entity
 
 import java.time.LocalDateTime
 
+import models.User.given
+
 import utils.DateTimeCodecs.given
 
 /**
@@ -31,4 +33,3 @@ object Transaction:
    * Sérialisation/désérialisation JSON pour Transaction.
    * */
   given rwTransaction: ReadWriter[Transaction] = macroRW
-  

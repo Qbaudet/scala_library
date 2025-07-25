@@ -1,14 +1,11 @@
-package main
-
-import models.*
-import models.UserId.*
+import models._
 import services.Catalog
 import utils.CatalogIO
 
-import java.nio.file.{Files, Paths}
+import java.nio.file.Paths
 import java.time.LocalDateTime
 import scala.concurrent.Await
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 import scala.io.StdIn.readLine
 import scala.util.Try
 
@@ -19,10 +16,14 @@ import scala.util.Try
   // Load initial data from JSON
   val books = CatalogIO.loadBooks(bookPath)
   val users = CatalogIO.loadUsers(userPath)
-  var catalog = Catalog(books, users)
+  val txPath = Paths.get("transactions.json").toString
+  val pastTxs = CatalogIO.loadTransactions(txPath)
+  var catalog = Catalog(books, users, pastTxs, txFile = txPath)
 
   println("Welcome to the Library Management System")
   val (user, updatedCatalog) = authenticateOrCreateUser(catalog, userPath)
+  var currentUser = user
+  var currentCatalog = updatedCatalog
 
   println(s"Authenticated as ${user.name} (ID: ${user.id.value})")
 
@@ -78,7 +79,7 @@ def createUserInteractive(idStr: String): User =
 
 
 def memberMenu(user: Member, catalog: Catalog): Unit = {
-  var continue       = true
+  var continue = true
   var currentCatalog = catalog
 
   while continue do
@@ -89,7 +90,6 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
     println("4. Exit")
 
     readLine("Choose an option: ").trim match
-      // 1. BROWSE
       case "1" =>
         // On récupère la liste des livres disponibles
         val available = Await.result(currentCatalog.listAvailableBooks, 5.seconds)
@@ -101,25 +101,21 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
             println(s"- ISBN: ${book.ISBN.value} | ${book.title} by ${book.authors.mkString(", ")} (${book.publicationyear})")
           }
 
-      // 2. BORROW
       case "2" =>
         val isbn = readLine("Enter ISBN to borrow: ").trim
         currentCatalog.books.find(_.ISBN.value == isbn) match
           case None =>
             println(s"No book with ISBN '$isbn' found.")
           case Some(book) =>
-            // On enregistre la transaction
             currentCatalog.recordTransaction(Transaction(book, user, LocalDateTime.now())) match
               case Left(err) =>
                 println(s"Could not borrow book: $err")
               case Right(updated) =>
                 currentCatalog = updated
-                println(s"Book '${book.title}' borrowed successfully!")
+                println(s"Book '${book.title}' by ${user.name} borrowed successfully!")
 
-      // 3. RETURN
       case "3" =>
         val isbn = readLine("Enter ISBN to return: ").trim
-        // On cherche la transaction non retournée pour cet utilisateur et ISBN
         val maybeTx = currentCatalog.transactions.find { tx =>
           tx.user.id == user.id &&
             tx.book_loans.ISBN.value == isbn &&
@@ -129,13 +125,11 @@ def memberMenu(user: Member, catalog: Catalog): Unit = {
           case None =>
             println(s"No active loan found for ISBN '$isbn'.")
           case Some(tx) =>
-            // On marque la date de retour
             val returnedTx = tx.copy(returns = Some(LocalDateTime.now()))
             currentCatalog.transactions =
               returnedTx :: currentCatalog.transactions.filterNot(_ == tx)
             println(s"Book '${tx.book_loans.title}' returned. Thank you!")
 
-      // 4. EXIT
       case "4" =>
         println("Goodbye!")
         continue = false
@@ -153,8 +147,9 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
     println("1. Add a new book")
     println("2. Remove a book")
     println("3. Search a book")
-    println("4. See a books statistics")
-    println("5. See ongoing transactions")
+    println("4. See available books")
+    println("5. See statistics")
+    println("6. See ongoing transactions")
     println("0. Exit")
     print("Select an option: ")
     readLine().trim match
@@ -204,13 +199,13 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
                   genre = genre,
                   availability = available
                 )
-                
+
                 user.addBook(newBook, localCatalog) match
                   case Right(updatedCatalog) =>
                     localCatalog = updatedCatalog
                     CatalogIO.saveBooks(localCatalog, bookPath)
                     println("Book added successfully.")
-                
+
                   case Left(error) =>
                     println(s"Error: $error")
 
@@ -220,6 +215,51 @@ def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
           case None =>
             println("Invalid ISBN format.")
 
+      case "2" =>
+        print("Enter the ISBN of the book to remove: ")
+        val isbnInput = readLine().trim
+
+        if isbnInput.nonEmpty then
+          val bookToDelete = ISBN(isbnInput)
+          if localCatalog.books.exists(_.ISBN == bookToDelete) then
+            user.removeBook(bookToDelete.value, localCatalog)
+
+            CatalogIO.saveBooks(localCatalog, bookPath)
+            println(s"Book with ISBN '${bookToDelete.value}' removed.")
+          else
+            println(s"Error: Book with ISBN '${bookToDelete.value}' not found.")
+        else
+          println("Invalid ISBN format.")
+
+
+      case "3" =>
+        print("Enter your search query (title, author, ISBN, genre, year, or availability): ")
+        val query = readLine().trim
+
+        println("Searching books...")
+
+        try
+          val results = Await.result(localCatalog.search(query), Duration.Inf)
+          if results.nonEmpty then
+            println("Here is the list of book which correspond to your searching criteria:")
+            results.foreach(println)
+          else
+            println("No books matched your query.")
+        catch
+          case e: Exception =>
+            println(s"An error occurred during search: ${e.getMessage}")
+
+      case "4" =>
+        print("List of available books:")
+        println(localCatalog.listAvailableBooks)
+
+      case "5" =>
+        print("General statistics:")
+        println(localCatalog.statistics())
+
+      case "0" =>
+        println("Goodbye!")
+        continue = false
 
 
 def facultyMenu(user: Faculty, catalog: Catalog, userPath: String): Unit =

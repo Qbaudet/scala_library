@@ -1,1 +1,38 @@
-[{"book_loans":{"ISBN":"11111","title":"Machine Learning","authors":["Author C"],"publicationyear":2019,"genre":"Machine Learning","availability":true},"user":{"$type":"models.Member","name":"Alice","memberId":1},"timestamp":"2025-07-25T20:04:50.487106"},{"book_loans":{"ISBN":"12345","title":"Scala Basics","authors":["Author A"],"publicationyear":2020,"genre":"Programming","availability":true},"user":{"$type":"models.Member","name":"Alice","memberId":1},"timestamp":"2025-07-25T20:04:50.486937"}]
+[
+    {
+        "book_loans": {
+            "ISBN": "123456",
+            "title": "Test",
+            "authors": [
+                "Test"
+            ],
+            "publicationyear": 2025,
+            "genre": "Programming",
+            "availability": true
+        },
+        "user": {
+            "$type": "models.Member",
+            "name": "joris",
+            "memberId": 5
+        },
+        "timestamp": "2025-07-25T22:48:19.601077"
+    },
+    {
+        "book_loans": {
+            "ISBN": "123456",
+            "title": "Test",
+            "authors": [
+                "Test"
+            ],
+            "publicationyear": 2025,
+            "genre": "Programming",
+            "availability": true
+        },
+        "user": {
+            "$type": "models.Member",
+            "name": "joris",
+            "memberId": 5
+        },
+        "timestamp": "2025-07-25T22:30:49.017211"
+    }
+]
