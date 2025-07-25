@@ -1,10 +1,11 @@
 package utils
 
-import models.{Book_Entity, User}
+import models._
 import services.Catalog
 import upickle.default.*
 import java.nio.charset.StandardCharsets
 import java.nio.file.{Files, Paths}
+import upickle.default.{read, write}
 
 /**
  * Objet `CatalogIO` qui gère l'entrée et la sortie des données dans le système.
@@ -84,13 +85,39 @@ object CatalogIO:
    * @param fileName Le nom du fichier à charger (par défaut, "users.json").
    * @return Une liste d'utilisateurs chargée depuis le fichier.
    */
-  def loadUsers(filePath:String): List[User] =
+  def loadUsers(filePath:String): List[User] = {
     val path = Paths.get(filePath)
     if Files.exists(path) then
       val content = Files.readString(path)
       upickle.default.read[List[User]](content)
     else List.empty
+  }
 
+    /**
+     * Sauvegarde l’historique complet des transactions dans un JSON.
+     */
+    def saveTransactions(catalog: Catalog, fileName: String = "transactions.json"): Unit =
+      val path = Paths.get(dataDir, fileName)
+      Files.createDirectories(path.getParent)
+      val json = write(catalog.transactions)
+      Files.write(path, json.getBytes(StandardCharsets.UTF_8))
+
+    /**
+     * Charge l’historique complet des transactions depuis le JSON
+     * Retourne toujours une List[Transaction], même si le fichier n’existe pas.
+     */
+    def loadTransactions(fileName: String = "transactions.json"): List[Transaction] = {
+      val path = Paths.get(dataDir, fileName)
+      if (Files.exists(path)) {
+        // Si le fichier existe, on lit son contenu et on parse en JSON
+        val content = Files.readString(path)
+        read[List[Transaction]](content)        // ← renvoie la List ici
+      } else {
+        // Sinon, on renvoie explicitement une List vide de Transaction
+        List.empty[Transaction]                 // ← renvoie aussi la List vide
+      }
+    }
+  
   /**
    * Remplace les données du catalogue avec de nouveaux livres et utilisateurs.
    *

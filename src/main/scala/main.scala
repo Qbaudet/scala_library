@@ -4,7 +4,11 @@ import models.*
 import models.UserId.*
 import services.Catalog
 import utils.CatalogIO
+
 import java.nio.file.{Files, Paths}
+import java.time.LocalDateTime
+import scala.concurrent.Await
+import scala.concurrent.duration._
 import scala.io.StdIn.readLine
 import scala.util.Try
 
@@ -73,8 +77,10 @@ def createUserInteractive(idStr: String): User =
       sys.exit(1)
 
 
-def memberMenu(user: Member, catalog: Catalog): Unit =
-  var continue = true
+def memberMenu(user: Member, catalog: Catalog): Unit = {
+  var continue       = true
+  var currentCatalog = catalog
+
   while continue do
     println("\n== Member Menu ==")
     println("1. Browse books")
@@ -83,13 +89,61 @@ def memberMenu(user: Member, catalog: Catalog): Unit =
     println("4. Exit")
 
     readLine("Choose an option: ").trim match
-      case "1" => println("[Placeholder] Displaying available books...")
-      case "2" => println("[Placeholder] Borrowing a book...")
-      case "3" => println("[Placeholder] Returning a book...")
+      // 1. BROWSE
+      case "1" =>
+        // On récupère la liste des livres disponibles
+        val available = Await.result(currentCatalog.listAvailableBooks, 5.seconds)
+        if available.isEmpty then
+          println("No books available at the moment.")
+        else
+          println("\nAvailable books:")
+          available.foreach { book =>
+            println(s"- ISBN: ${book.ISBN.value} | ${book.title} by ${book.authors.mkString(", ")} (${book.publicationyear})")
+          }
+
+      // 2. BORROW
+      case "2" =>
+        val isbn = readLine("Enter ISBN to borrow: ").trim
+        currentCatalog.books.find(_.ISBN.value == isbn) match
+          case None =>
+            println(s"No book with ISBN '$isbn' found.")
+          case Some(book) =>
+            // On enregistre la transaction
+            currentCatalog.recordTransaction(Transaction(book, user, LocalDateTime.now())) match
+              case Left(err) =>
+                println(s"Could not borrow book: $err")
+              case Right(updated) =>
+                currentCatalog = updated
+                println(s"Book '${book.title}' borrowed successfully!")
+
+      // 3. RETURN
+      case "3" =>
+        val isbn = readLine("Enter ISBN to return: ").trim
+        // On cherche la transaction non retournée pour cet utilisateur et ISBN
+        val maybeTx = currentCatalog.transactions.find { tx =>
+          tx.user.id == user.id &&
+            tx.book_loans.ISBN.value == isbn &&
+            tx.returns.isEmpty
+        }
+        maybeTx match
+          case None =>
+            println(s"No active loan found for ISBN '$isbn'.")
+          case Some(tx) =>
+            // On marque la date de retour
+            val returnedTx = tx.copy(returns = Some(LocalDateTime.now()))
+            currentCatalog.transactions =
+              returnedTx :: currentCatalog.transactions.filterNot(_ == tx)
+            println(s"Book '${tx.book_loans.title}' returned. Thank you!")
+
+      // 4. EXIT
       case "4" =>
         println("Goodbye!")
         continue = false
-      case _   => println("Invalid choice. Try again.")
+
+      case _ =>
+        println("Invalid choice. Try again.")
+}
+
 
 def librarianMenu(user: Librarian, catalog: Catalog, bookPath: String): Unit =
   var continue = true

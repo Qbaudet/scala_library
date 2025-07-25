@@ -2,8 +2,8 @@ package services
 
 import models.ISBN.ISBN
 import models.UserId.UserId
-import models.{Book_Entity, Transaction, User}
-import utils.Validators
+import models._
+import utils._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.{ExecutionContext, Future}
@@ -87,9 +87,11 @@ case class Catalog(
    */
   def recordTransaction(tx: Transaction): Either[String, Catalog] =
     Validators.validateTransaction(tx.book_loans, tx.user, this, tx.timestamp, tx.returns, tx.reservation)
-    .map(validTx =>
-      copy(transactions = validTx :: transactions)
-    )
+      .map { validTx =>
+        val updated = copy(transactions = validTx :: transactions)
+        CatalogIO.saveTransactions(updated)
+        updated
+      }
 
   /**
    * Recherche des livres dans le catalogue en fonction d'une requête.
